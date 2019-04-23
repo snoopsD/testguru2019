@@ -1,0 +1,2 @@
+class FinishedTest < ApplicationRecord
+end
