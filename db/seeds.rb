@@ -1,4 +1,7 @@
-# frozen_string_literal: true
+users = User.create(
+  [{ email: 'test1@test.ru', name: 'Dmitry' },
+   { email: 'test2@test.ru', name: 'Roman' }]
+)
 
 categories = Category.create(
   [{ title: 'Ruby' },
@@ -7,15 +10,10 @@ categories = Category.create(
 )
 
 tests = Test.create(
-  [{ title: 'Ruby test for begginer', level: 0, category: categories[0] },
-   { title: 'Go test for begginer', level: 1, category: categories[1] },
-   { title: 'HTML test for middle', level: 0, category: categories[2] },
-   { title: 'Ruby test', level: 0, category: categories[0] }]
-)
-
-users = User.create(
-  [{ email: 'test1@test.ru', name: 'Dmitry' },
-   { email: 'test2@test.ru', name: 'Roman' }]
+  [{ title: 'Ruby test for begginer', level: 0, category: categories[0], creator: users[0] },
+   { title: 'Go test for begginer', level: 1, category: categories[1], creator: users[0] },
+   { title: 'HTML test for middle', level: 0, category: categories[2], creator: users[0] },
+   { title: 'Ruby test', level: 0, category: categories[0], creator: users[0] }]
 )
 
 finished_tests = FinishedTest.create(
