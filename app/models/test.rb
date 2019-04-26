@@ -5,8 +5,14 @@ class Test < ApplicationRecord
   has_many :finished_tests
   has_many :users, through: :finished_tests
 
-  def self.categories_titles(title)
-    Test.joins(:category).where(categories: { title: title })
-        .order(title: :desc).pluck(:title) 
-  end
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to:  0 } 
+  validates_uniqueness_of :title, scope: :level
+
+  scope :easy, -> { where(level: 0..1) }
+  scope :medium, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :categories_titles, -> (title) { joins(:category).
+                      where(categories: { title: title }).
+                      order(title: :desc).pluck(:title) }
 end

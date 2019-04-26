@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_many :finished_tests
   has_many :tests, through: :finished_tests
 
+  validates :name, :email, presence: true
+  validates :email, uniqueness: true
+
   def finish_tests(level)
     Test.joins(:finished_tests)
         .where(finished_tests: { user: self }, level: level)
