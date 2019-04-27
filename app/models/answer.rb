@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def has_answers
-    errors.add(:base, "Many answers") if (question && question.answers.size > 4)
+    errors.add(:base, "Question have many answers") if (question && question.answers.size > 4)
   end
 end
