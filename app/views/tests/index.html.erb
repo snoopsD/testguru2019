@@ -1,5 +1,7 @@
 <h3> Tests list </h3>
 <% @tests.each do |test| %>
- <p> <%= test.title %>
+ <p> <%= link_to test.title, test %>
 <% end %>
+
+
 

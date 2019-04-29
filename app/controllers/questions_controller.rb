@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show destroy]
-  before_action :set_test, only: %i[create index]
+  before_action :set_test, only: %i[create index new]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
+  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
   def index
     @questions = @test.questions
@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.create(question_params)
     
-    render plain: "Вопрос создан"
+    redirect_to test_path(@test)
   end
 
   def show    
@@ -23,9 +23,10 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
+    @test = @question.test
     @question.destroy
 
-    redirect_to :root
+    redirect_to test_path(@test)
   end
 
   private

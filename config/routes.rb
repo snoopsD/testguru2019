@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'questions#index'
+  root 'tests#index'
 
   resources :tests do
     resources :questions, shallow: true
