@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show destroy]
   before_action :set_test, only: %i[create index new]
 
-  #rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
   def index
     @questions = @test.questions
@@ -41,10 +41,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:body)
-  end
+  end 
 
   def rescue_with_record_not_found
     render plain: 'Record not found'
   end
-  
 end

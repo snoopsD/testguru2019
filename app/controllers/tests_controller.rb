@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_action :set_test, only: %i[show]
+  
   def index
     @tests = Test.all
   end
