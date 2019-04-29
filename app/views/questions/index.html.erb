@@ -1,0 +1,5 @@
+<h3> Questions </h3>
+<% @questions.each do |question| %>
+ <p> <%= link_to question.body, question %>
+<% end %>
+
