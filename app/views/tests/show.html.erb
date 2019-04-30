@@ -1,0 +1,12 @@
+<%= @test.title%>
+<br>
+<% @test.questions.each do |question|%>
+<br>
+<%= link_to question.body, question %>
+<%end%>
+
+<p>
+  <%= link_to 'Create question', new_test_question_path(@test) %>
+
+<p> 
+  <%= link_to 'Show all tests', tests_path %>
