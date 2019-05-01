@@ -1,12 +1,15 @@
-<%= @test.title%>
+Title: <%= @test.title%>
 <br>
-<% @test.questions.each do |question|%>
-<br>
-<%= link_to question.body, question %>
-<%end%>
+<%= link_to 'Edit', edit_test_path(@test) %> | 
+<%= link_to 'Back', tests_path %><br>
+
+<hr />
+<p>Questions:</p>
+
+<%= render @test.questions %>
 
 <p>
-  <%= link_to 'Create question', new_test_question_path(@test) %>
+  <%= link_to 'Create question', new_test_question_path(@test) %><br>
 
-<p> 
-  <%= link_to 'Show all tests', tests_path %>
+
+
