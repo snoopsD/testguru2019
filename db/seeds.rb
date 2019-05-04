@@ -16,16 +16,10 @@ tests = Test.create(
    { title: 'Ruby test', level: 6, category: categories[0], creator: users[0] }]
 )
 
-finished_tests = FinishedTest.create(
-  [{ user: users[0], test: tests[2] },
-   { user: users[1], test: tests[0] }]
-)
-
 questions = Question.create(
   [{ body: 'what means ta g p?', test: tests[0] },
    { body: 'what means hash?', test: tests[0] },
-   { body: 'what means hash?', test: tests[0] },
-   { body: 'how many cycles in go?', test: tests[0] }]
+   { body: 'how may cycles in go?', test: tests[0] }]
 )
 
 answers = Answer.create(
