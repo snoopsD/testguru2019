@@ -8,8 +8,6 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_next_question
 
-  #validate :min_choose
-
   def completed?
     current_question.nil?
   end
@@ -36,10 +34,6 @@ class TestPassage < ApplicationRecord
 
   def before_update_next_question
     self.current_question  = test.questions.order(:id).where('id > ?', current_question.id).first
-  end
-
-  def min_choose
-    errors.add(:base, 'You must select at least one item') if params[:answer_ids].nil?
   end
 
   def correct_answer?(answer_ids)
