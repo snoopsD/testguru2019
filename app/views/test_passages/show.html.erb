@@ -10,7 +10,7 @@
       @test_passage.current_question.answers, 
       :id, :body, include_hidden: false do |b|%>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object_id}", required: true  %>
+      <%= b.check_box id: "answer_ids_#{b.object_id}"  %>
       <%= b.label %>
     </p>
   <% end %>
