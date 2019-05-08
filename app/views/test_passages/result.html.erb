@@ -1,0 +1,19 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+
+  <p>
+    <% if @test_passage.passed? %>
+      Вы успешно прошли тест!
+      <p style="color:green;"><%= @test_passage.success_rate %></p>
+    <% else %> 
+      Тест не пройден
+      <p style="color:red;"><%= @test_passage.success_rate %></p>
+    <% end %>
+  </p>  
+  <%= link_to 'Back to all tests', tests_path %><br>
+
+  <p> Пройденные тесты
+    <ol>
+      <%= render @user.test_passages %>
+    </ol> 
+  </p>
+
