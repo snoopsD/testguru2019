@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
 
   has_many :own_tests, class_name: 'Test', foreign_key: :creator_id
@@ -5,8 +7,10 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :name, :email, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true 
+  validates :email, format: /\A\w+@\w+\.\w+\z/i
+
+  has_secure_password
 
   def finish_tests(level)
     Test.joins(:test_passages)
