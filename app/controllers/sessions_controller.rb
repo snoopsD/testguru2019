@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:alert] = "Login successfully"
-      redirect_to root_path
+      redirect_to cookies[:back_path] || root_path
     else
       flash[:alert] = "Verify your Email and Password"
       render :new
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   private 
 
   def set_user
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(email: params[:email].downcase)
   end
 
 end
