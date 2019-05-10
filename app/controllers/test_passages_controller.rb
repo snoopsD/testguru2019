@@ -4,11 +4,9 @@ class TestPassagesController < ApplicationController
   before_action :set_user, only: %i[result]
 
   def show
-
   end
 
   def result
-
   end
 
   def update

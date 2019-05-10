@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  before_save :downcase_email
+
   def finish_tests(level)
     Test.joins(:test_passages)
         .where(test_passages: { user: self }, level: level)
@@ -20,6 +22,12 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  private
+  
+  def downcase_email
+    self.email = email.downcase
   end
 
 end
