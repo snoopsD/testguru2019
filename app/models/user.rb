@@ -1,5 +1,3 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
 
   has_many :own_tests, class_name: 'Test', foreign_key: :creator_id
@@ -7,12 +5,12 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :email, uniqueness: true 
-  validates :email, format: /\A\w+@\w+\.\w+\z/i
-
-  has_secure_password
-
   before_save :downcase_email
+
+  validates :email, uniqueness: true 
+  validates :email, format: /\w+[^\s]@\w+[^\s]\.\w+/i
+
+  has_secure_password 
 
   def finish_tests(level)
     Test.joins(:test_passages)
@@ -27,7 +25,7 @@ class User < ApplicationRecord
   private
   
   def downcase_email
-    self.email = email.downcase
+    self.email = email.strip.downcase
   end
 
 end
