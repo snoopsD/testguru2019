@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Testguru2019</title>
+    <h1><%= link_to 'Test Guru', tests_path %></h1>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,8 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+  <%= flash_message(:alert) %>
+    <% if logged_in? %>      
+      <p class="nav user">Welcome, <b><%= current_user.name %></b> Guru</p>
+      <p class="nav user"><%= link_to 'Logout', logout_path %></p>
+    <% else %> 
+      <p class="nav user"><%= link_to 'Register', signup_path %> | 
+                          <%= link_to 'Login', login_path %></p>      
+    <% end %>  
     <%= flash[:notice] %>
+    <%= yield %>    
   </body>
   <%= render 'shared/footer' %>
 </html>

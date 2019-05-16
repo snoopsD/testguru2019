@@ -4,11 +4,9 @@ class TestPassagesController < ApplicationController
   before_action :set_user, only: %i[result]
 
   def show
-
   end
 
   def result
-
   end
 
   def update
@@ -31,7 +29,7 @@ class TestPassagesController < ApplicationController
   end
 
   def set_user
-    @user = User.first
+    current_user
   end
   
 end

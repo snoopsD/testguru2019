@@ -5,8 +5,12 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :name, :email, presence: true
-  validates :email, uniqueness: true
+  before_save :downcase_email
+
+  validates :email, uniqueness: true 
+  validates :email, format: /\w+[^\s]@\w+[^\s]\.\w+/i
+
+  has_secure_password 
 
   def finish_tests(level)
     Test.joins(:test_passages)
@@ -16,6 +20,12 @@ class User < ApplicationRecord
 
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
+
+  private
+  
+  def downcase_email
+    self.email = email.strip.downcase
   end
 
 end
