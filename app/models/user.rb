@@ -1,5 +1,12 @@
 class User < ApplicationRecord
 
+  devise :database_authenticatable,
+        :registerable,
+        :recoverable,
+        :rememberable,
+        :validatable,
+        :confirmable
+
   has_many :own_tests, class_name: 'Test', foreign_key: :creator_id
   has_many :finished_tests
   has_many :test_passages
@@ -9,8 +16,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true 
   validates :email, format: /\w+[^\s]@\w+[^\s]\.\w+/i
-
-  has_secure_password 
 
   def finish_tests(level)
     Test.joins(:test_passages)

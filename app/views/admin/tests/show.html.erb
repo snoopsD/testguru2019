@@ -1,0 +1,17 @@
+Title: <%= @test.title%>
+<br>
+<%= link_to 'Edit', edit_admin_test_path(@test) %> | 
+<%= link_to 'Back', admin_tests_path %><br>
+
+<hr />
+<p>Questions:</p>
+
+<ol>
+  <%= render @test.questions %>
+</ol>  
+
+<p>
+  <%= link_to 'Create question', new_admin_test_question_path(@test) %><br>
+
+
+
