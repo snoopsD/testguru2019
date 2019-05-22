@@ -1,17 +1,17 @@
-Title: <%= @test.title%>
+<%= t('.title') %>: <%= @test.title %>
 <br>
-<%= link_to 'Edit', edit_admin_test_path(@test) %> | 
-<%= link_to 'Back', admin_tests_path %><br>
+<%= link_to t('edit'), edit_admin_test_path(@test) %> | 
+<%= link_to t('back_link'), admin_tests_path %><br>
 
 <hr />
-<p>Questions:</p>
+<p><%= t('.questions') %>:</p>
 
 <ol>
   <%= render @test.questions %>
 </ol>  
 
 <p>
-  <%= link_to 'Create question', new_admin_test_question_path(@test) %><br>
+  <%= link_to t('create_question'), new_admin_test_question_path(@test) %><br>
 
 
 

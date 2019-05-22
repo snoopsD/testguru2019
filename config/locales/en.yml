@@ -1,33 +1,127 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  devise:
+    sessions:
+      new: 
+        header: "Enter TestGuru Gate"
+        enter_button: "Enter" 
+    registrations:
+      sign_button: "Sign up"
+    confirmations:
+      new:
+        resend_confirmation: "Resend confirmation" 
+    unlocks:
+      new:
+        resend_unlock: "Resend unlock instructions" 
+    passwords:
+      new:
+        header: "Forgot password?" 
+        reset_button: "Reset password"                 
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"     
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test"
+      question:
+        create: "Create question"    
+        update: "Update question" 
+
+      label:
+        test:
+          title: "Title"
+          level: "Level"
+          category_id: "Category" 
+        user:
+          name: "Name"
+          email: "Email" 
+          password: "Password"
+          password_confirmation: "Password confirmation"
+          remember_me: "Remember me" 
+  
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  test_passages:
+    result: 
+      header: "Test %{title} was successfully finished!"
+    show:
+      header: "Passing the"   
+
+  tests:
+    index:
+      header: "Tests list"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created"
+        header: "Create test"
+      update:
+        success: "Test was successfully updated"
+      destroy:
+        success: "Test deleted"  
+      index:
+        header: "Tests list"  
+        create: "New test"
+      edit:
+        header: "Edit Test" 
+      new:
+        header: "Create test" 
+      show:
+        title: "Title" 
+        questions: "Questions"
+    questions:
+      show:
+        answers: "Answers"
+        create: "Create answer"          
+    answers:
+      new:
+        header: "New answer" 
+      edit:
+        header: "Edit answer"
+      show:
+        header: "Question"
+        answer: "Answer" 
+        correct: "Correct answer"           
+      
+  tests_mailer:
+    completed_test:
+      subject: 'You just completed the TestGuru test'
+
+  admin_panel: "TestGuru Admin Panel"
+  welcome_admin_html: 'Welcome, <b class="nav-admin user-name">%{name}</b>' 
+  welcome_user_html: 'Welcome, <b>%{name}</b>'
+  login: "Login"
+  logout: "Logout"
+  title_test: "Title"
+  level_test: "Level"
+  questions_test: "Questions"
+  actions_test: "Actions"
+  create: "Create"
+  show_test: "show"
+  edit_test: "edit"
+  delete_test: "delete"    
+  back_link: "Back" 
+  create_question: "Create question"
+  confirm_delete: "Are you sure?" 
+  register: "Register"
+  "true": "Yes"
+  "false": "No"
+  start_button: "Start"
+  next_button: "Next"
+  hello: "Hello"
+  characters_minimum: "минимум знаков"
