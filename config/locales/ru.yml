@@ -58,7 +58,7 @@ ru:
         
   test_passages:
     result: 
-      header: "Тест %{title} успешно завершен!" 
+      header: "Тест %{title} завершен!" 
     show:
       header: "Прохождение"   
 
@@ -90,7 +90,8 @@ ru:
     questions:
       show:
         answers: "Ответы"
-        create: "Создать ответ"    
+        create: "Создать ответ" 
+        question: "Вопрос"   
     answers:
       new:
         header: "Новый ответ"  
@@ -128,6 +129,7 @@ ru:
   next_button: "Дальше"
   hello: "Привет"
   characters_minimum: "минимум знаков"
-
+  remember_me: "Запомнить меня"
+  question: "Вопрос"
 
 
