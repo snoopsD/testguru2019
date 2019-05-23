@@ -2,6 +2,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
+
+  def default_url_options
+    { :lang => ((I18n.locale == I18n.default_locale) ? nil : I18n.locale) }
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
 
   protected
 
@@ -10,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
    def after_sign_in_path_for(resource)
-    flash[:success] = "Hello, #{current_user.name}"
+    flash[:success] = "#{t('hello')}, #{current_user.name}"
     resource.type == 'Admin' ? admin_root_path : root_path
    end  
 end
