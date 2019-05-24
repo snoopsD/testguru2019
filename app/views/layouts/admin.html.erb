@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> <%= t('admin_panel') %> | Testguru2019</title>
 
     <%= csrf_meta_tags %>
@@ -13,8 +15,12 @@
   <body>
     <%= render 'admin/nav'%>
     <%= render 'shared/flash'%>
-
-    <%= yield %>    
+    <div class="container">
+      <%= yield %>  
+    </div>    
   </body>
-  <%= render 'shared/footer' %>
+  
+   <div class="navbar-fixed-bottom">
+      <%= render 'shared/footer' %> 
+  </div> 
 </html>

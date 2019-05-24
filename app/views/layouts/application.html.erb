@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Testguru2019</title>
-    <h1><%= link_to 'Test Guru', tests_path %></h1>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,21 +12,19 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <p class="nav user">
-        <%= t('welcome_user_html', name: current_user.name) %>Guru |
-        <%= link_to t('logout'), destroy_user_session_path, method: :delete %>
-      </p>
-    <% else %>  
-      <p class="nav user">
-        <%= link_to t('register'), new_user_registration_path %>
-        <%= link_to t('login'), new_user_session_path %>
-      </p>
-    <% end %>  
-
-    <%= render 'shared/flash'%>
-
-    <%= yield %>    
+    <% if user_signed_in? && current_user.type == 'Admin' %>
+      <%= render 'admin/nav' %>
+    <% else %>    
+      <%= render 'shared/nav' %>
+    <% end %>
+    
+    <div class="container">
+      <%= render 'shared/flash'%>
+      <%= yield %>    
+    </div>  
   </body>
-  <%= render 'shared/footer' %>
+
+  <div class="navbar-fixed-bottom">
+      <%= render 'shared/footer' %> 
+  </div>           
 </html>

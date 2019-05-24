@@ -54,7 +54,7 @@ en:
 
   test_passages:
     result: 
-      header: "Test %{title} was successfully finished!"
+      header: "Test %{title} was finished!"
     show:
       header: "Passing the"   
 
@@ -87,7 +87,8 @@ en:
     questions:
       show:
         answers: "Answers"
-        create: "Create answer"          
+        create: "Create answer"  
+        question: "Question"        
     answers:
       new:
         header: "New answer" 
@@ -125,3 +126,5 @@ en:
   next_button: "Next"
   hello: "Hello"
   characters_minimum: "минимум знаков"
+  remember_me: "Remeber me"
+  question: "Question"

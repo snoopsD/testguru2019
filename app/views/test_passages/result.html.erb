@@ -1,19 +1,24 @@
-<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<h4><%= t('.header', title: @test_passage.test.title) %></h4>
+<hr>
 
-  <p>
-    <% if @test_passage.passed? %>
-      Вы успешно прошли тест!
-      <p style="color:green;"><%= @test_passage.success_rate %></p>
-    <% else %> 
-      Тест не пройден
-      <p style="color:red;"><%= @test_passage.success_rate %></p>
-    <% end %>
-  </p>  
-  <%= link_to t('back_link'), tests_path %><br>
+<p>
+  <% if @test_passage.passed? %>
+    Вы успешно прошли тест!
+    <p style="color:green;"><%= @test_passage.success_rate %></p>
+  <% else %> 
+    Тест не пройден
+    <p style="color:red;"><%= @test_passage.success_rate %></p>
+  <% end %>
+</p>  
+<%= link_to t('back_link'), tests_path %><br>
 
-  <p> Пройденные тесты
-    <ol>
-      <%= render current_user.test_passages %>
-    </ol> 
-  </p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Пройденные тесты</th>
+    </tr>
+  </thead>  
+  <%= render current_user.test_passages %>
+</table>  
+
 
