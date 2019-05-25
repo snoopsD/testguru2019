@@ -56,7 +56,10 @@ en:
     result: 
       header: "Test %{title} was finished!"
     show:
-      header: "Passing the"   
+      header: "Passing the" 
+    gist:
+      success: "Gist was successfully created! Link %{url}"
+      failure: "An error occured while saving gist"    
 
   tests:
     index:
@@ -97,7 +100,13 @@ en:
       show:
         header: "Question"
         answer: "Answer" 
-        correct: "Correct answer"           
+        correct: "Correct answer" 
+    gist:
+      index:
+        header: "Gists"
+        question: "Question"
+        url: "URL"
+        email: "Email"                  
       
   tests_mailer:
     completed_test:
@@ -128,3 +137,4 @@ en:
   characters_minimum: "минимум знаков"
   remember_me: "Remeber me"
   question: "Question"
+  gist_description: "A question about"

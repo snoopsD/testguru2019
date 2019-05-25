@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :finished_tests
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :gists
 
   before_save :downcase_email
 
