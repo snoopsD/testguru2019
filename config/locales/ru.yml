@@ -60,7 +60,10 @@ ru:
     result: 
       header: "Тест %{title} завершен!" 
     show:
-      header: "Прохождение"   
+      header: "Прохождение" 
+    gist:
+      success: "Gist успешно сохранен! Ссылка %{url}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   tests:
     index:
@@ -100,12 +103,18 @@ ru:
       show:
         header: "Вопрос" 
         answer: "Ответ" 
-        correct: "Правильный ответ"  
+        correct: "Правильный ответ"
+    gists:
+      index:
+        header: "Гисты"
+        question: "Вопрос"
+        url: "Ссылка"
+        email: "Email"
+
      
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест!"
-
   admin_panel: "TestGuru Панель Управления"
   welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-name">%{name}</b>' 
   welcome_user_html: 'Добро пожаловать, <b>%{name}</b> ' 
@@ -131,5 +140,6 @@ ru:
   characters_minimum: "минимум знаков"
   remember_me: "Запомнить меня"
   question: "Вопрос"
+  gist_description: "Вопрос из теста"
 
 
