@@ -33,6 +33,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'faraday'
 gem 'octokit', '~> 4.0'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'octicons_helper'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
