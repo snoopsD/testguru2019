@@ -15,8 +15,9 @@ document.addEventListener('turbolinks:load', function() {
     if (newPassword.value == confirmPassword.value && newPassword.value != "" ) {
       confirmPassword.style.backgroundColor  = "#66cc66"
       passworField.querySelector('.octicon-check').classList.remove('hide')
-    } else if (newPassword.value == "") {
+    } else if (newPassword.value == "" || confirmPassword.value == "") {
       confirmPassword.style.backgroundColor = "transparent"
+      passworField.querySelector('.octicon-check').classList.add('hide')
     } else {
       confirmPassword.style.backgroundColor = "#ff6666" 
       passworField.querySelector('.octicon-check').classList.add('hide')     
