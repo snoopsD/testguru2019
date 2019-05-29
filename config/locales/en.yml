@@ -87,6 +87,8 @@ en:
       show:
         title: "Title" 
         questions: "Questions"
+      form_inline:
+        submit: "OK"     
     questions:
       show:
         answers: "Answers"

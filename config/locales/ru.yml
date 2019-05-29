@@ -89,7 +89,9 @@ ru:
         header: "Создать тест"  
       show:
         title: "Название"
-        questions: "Вопросы" 
+        questions: "Вопросы"
+      form_inline:
+        submit: "OK"      
     questions:
       show:
         answers: "Ответы"
