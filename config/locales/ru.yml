@@ -71,7 +71,8 @@ ru:
       title: "Название"
       level: "Уровень"
       questions: "Вопросы"
-
+  
+  
   admin:
     tests:
       create:
@@ -111,12 +112,18 @@ ru:
         header: "Гисты"
         question: "Вопрос"
         url: "Ссылка"
-        email: "Email"
+        email: "Email"    
 
-     
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест!"
+
+  feedbacks:
+    create:
+      send_feedback: 'Письмо отправлено'
+    new:  
+      header: "Отправить отзыв" 
+
   admin_panel: "TestGuru Панель Управления"
   welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-name">%{name}</b>' 
   welcome_user_html: 'Добро пожаловать, <b>%{name}</b> ' 
