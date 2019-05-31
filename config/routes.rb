@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
   
-
   resources :tests, only: :index do    
     member do
       post :start
@@ -17,6 +16,8 @@ Rails.application.routes.draw do
       post :gist
     end
   end
+
+  resources :feedbacks, only: %i[new create]
 
   namespace :admin do
     resources :tests do

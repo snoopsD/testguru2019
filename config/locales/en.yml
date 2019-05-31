@@ -114,6 +114,12 @@ en:
     completed_test:
       subject: 'You just completed the TestGuru test'
 
+  feedbacks:
+    create:
+      send_feedback: 'Message was send' 
+    new:  
+      header: "Send feedback"         
+
   admin_panel: "TestGuru Admin Panel"
   welcome_admin_html: 'Welcome, <b class="nav-admin user-name">%{name}</b>' 
   welcome_user_html: 'Welcome, <b>%{name}</b>'
