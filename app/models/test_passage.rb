@@ -26,6 +26,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def question_number
+    test.questions.where('questions.id <= ?', current_question.id).count
+  end
+
   private 
 
   def before_validation_set_first_question

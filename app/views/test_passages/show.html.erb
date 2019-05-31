@@ -9,7 +9,7 @@
 
     <div id="progressBar">
       <div id="myBar">
-        <b><%= @test_passage.current_question.id %>
+        <b><%= @test_passage.question_number %>
         / <%= @test_passage.test.questions.count %> </b>
       </div>
     </div>
@@ -17,7 +17,7 @@
      <%=  content_tag :div, 
                     id: 'current-test',
                     data: { 
-                      current_question: @test_passage.current_question.id,
+                      question_number: @test_passage.question_number,
                       questions_count: @test_passage.test.questions.count
                       } do    %> 
 

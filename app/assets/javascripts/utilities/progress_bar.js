@@ -2,7 +2,7 @@ document.addEventListener('turbolinks:load', function() {
   var control = document.getElementById('current-test')
 
   if (control) {
-    var questionId = document.getElementById('current-test').dataset.currentQuestion
+    var questionId = document.getElementById('current-test').dataset.questionNumber
     var questionsCount = document.getElementById('current-test').dataset.questionsCount
 
     formProgressBar(questionId, questionsCount)
