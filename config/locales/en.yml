@@ -108,7 +108,17 @@ en:
         header: "Gists"
         question: "Question"
         url: "URL"
-        email: "Email"                  
+        email: "Email"  
+    badges:
+      index:
+        header: "Badges"  
+        th_title: "Title"
+        th_img: "Image"  
+        th_actions: "Actions" 
+      create:
+        success: "Badge create" 
+      update:
+        success: "Badge update"                      
       
   tests_mailer:
     completed_test:
@@ -118,7 +128,12 @@ en:
     create:
       send_feedback: 'Message was send' 
     new:  
-      header: "Send feedback"         
+      header: "Send feedback"  
+  badges:
+    index:
+      header: "Badges"  
+      th_title: "Title"
+      th_img: "Image"             
 
   admin_panel: "TestGuru Admin Panel"
   welcome_admin_html: 'Welcome, <b class="nav-admin user-name">%{name}</b>' 
@@ -146,3 +161,6 @@ en:
   remember_me: "Remeber me"
   question: "Question"
   gist_description: "A question about"
+  badges: "Badges"
+  send_feedback: "Send feedback"
+  create_badge: "Create badge"

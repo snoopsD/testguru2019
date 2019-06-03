@@ -3,7 +3,6 @@ users = User.create(
    { email: 'test2@test.ru', name: 'Roman' }]
 )
 
-
 categories = Category.create(
   [{ title: 'Backend' },
    { title: 'Frontend' }]
@@ -47,3 +46,9 @@ answers = Answer.create(
    { body: 'Null a Number', correct: false, question: questions[8], author_id: users[0] },
    { body: 'Not a Number', correct: true, question: questions[8], author_id: users[0] }]
 )
+
+badges = Badge.create([
+  { title: 'Complete successfully frontend test', img_url: "https://img.icons8.com/dusk/64/000000/prize.png", rule: 'category_complete', value: 'Frontend' },
+  { title: 'Complete for the first try', img_url: "https://img.icons8.com/bubbles/64/000000/prize.png", rule: 'first_try_complete', value: '' },
+  { title: 'Complete the 1-st level test', img_url: "https://img.icons8.com/color/64/000000/prize.png", rule: 'level_complete', value: '1' }
+])

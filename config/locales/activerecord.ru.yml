@@ -5,7 +5,7 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       user: "Пользователь"
-      badge: "Badge"
+      badge: "Бейдж"
 
     attributes:
       test:
@@ -24,7 +24,9 @@ ru:
         message: "Сообщение"
       badge:
         title: "Название"
-        img_url: "Ссылка на картинку"    
+        img_url: "Ссылка на картинку" 
+        rule: "Название правила"
+        value: "Значение правила"   
 
     errors:
       messages:

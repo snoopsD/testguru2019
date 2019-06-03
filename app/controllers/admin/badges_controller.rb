@@ -14,7 +14,7 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.new(badge_params)
 
     if @badge.save
-      redirect_to admin_badges_path, notice: "Бейдж создан"
+      redirect_to admin_badges_path, notice: t('.success')
     else
       redirect_to :new
     end
@@ -36,13 +36,13 @@ class Admin::BadgesController < Admin::BaseController
 
   def destroy
     @badge.destroy
-    redirect_to :admin_badges_path
+    redirect_to admin_badges_path
   end
 
   private
 
   def badge_params
-    params.require(:badge).permit(:title, :img_url)
+    params.require(:badge).permit(:title, :img_url, :rule, :value)
   end
 
   def set_badge
