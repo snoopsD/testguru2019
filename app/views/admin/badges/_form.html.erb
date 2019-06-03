@@ -1,0 +1,21 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-12">
+    <%= form_with model: [:admin, @badge], local: true do |form| %>
+      <%= render 'shared/errors', resource: @badge%>
+
+      <p>
+        <%= form.label :title %><br>
+        <%= form.text_field :title %>
+      </p><br>
+
+      <p>
+        <%= form.label :img_url%><br>
+        <%= form.text_field :img_url %>
+      </p><br>
+
+      <p><%= form.submit %></p>
+    <% end %>  
+
+    <%= link_to t('back_link'), admin_badges_path %>
+  </div>
+</div>    

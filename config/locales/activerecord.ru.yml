@@ -5,6 +5,7 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       user: "Пользователь"
+      badge: "Badge"
 
     attributes:
       test:
@@ -20,7 +21,10 @@ ru:
         email: "Почта"
         password: "Пароль" 
       feedback:
-        message: "Сообщение"  
+        message: "Сообщение"
+      badge:
+        title: "Название"
+        img_url: "Ссылка на картинку"    
 
     errors:
       messages:

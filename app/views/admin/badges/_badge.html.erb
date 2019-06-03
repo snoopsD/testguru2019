@@ -1,0 +1,10 @@
+<tr>  
+    <td><%=  badge.title %></td>
+    <td><img src="<%=  badge.img_url.html_safe %>"></td>
+    <td><%= link_to 'посмотреть', admin_badge_path(badge) %></td>
+    <td><%= link_to 'редактировать', edit_admin_badge_path(badge) %></td>
+    <td><%= link_to 'удалить', admin_badge_path(badge),
+                     method: :delete, 
+                     data: { confirm: "Вы уверены?" } %>
+    </td>
+</tr>
