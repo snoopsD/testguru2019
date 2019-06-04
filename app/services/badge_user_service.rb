@@ -7,16 +7,18 @@ class BadgeUserService
   end 
 
   def call
-    BadgeRule.all.each do |element|
-      case element.rule
-      when 'first_try_complete'
-        give_badge(element.badge) if first_try_successfull?           
-      when 'level_complete'
-        give_badge(element.badge) if level_complete?(element.value.to_i)
-      when 'category_complete'
-        give_badge(element.badge) if category_complete?(element.value)
-      end  
-    end
+    if successfull_test? 
+      BadgeRule.all.each do |element|
+        case element.rule
+        when 'first_try_complete'
+          give_badge(element.badge) if first_try_successfull?           
+        when 'level_complete'
+          give_badge(element.badge) if level_complete?(element.value.to_i)
+        when 'category_complete'
+          give_badge(element.badge) if category_complete?(element.value)
+        end  
+      end
+    end  
   end
 
   private
@@ -30,21 +32,21 @@ class BadgeUserService
   end
 
   def first_try_successfull?
-    successfull_test? && @user.tests.where(id: @test.id).count == 1
+    @user.tests.where(id: @test.id).count == 1
   end  
 
   def level_complete?(level)
     tests_ids = Test.levels_test(level).ids
     complete_tests_ids = @user.tests.levels_test(level).distinct.ids
 
-    successfull_test? && (complete_tests_ids == tests_ids)    
+    complete_tests_ids == tests_ids   
   end
 
   def category_complete?(category)
     tests_ids = Test.categories_test(category).ids
     complete_tests_ids = @user.tests.categories_test(category).distinct.ids
 
-    successfull_test? && (complete_tests_ids == tests_ids)
+    complete_tests_ids == tests_ids
   end
 
 end
