@@ -14,13 +14,8 @@
       </p><br>
 
       <p>
-        <%= form.label :rule %><br>
-        <%= form.text_field :rule %>
-      </p><br>
-
-      <p>
-        <%= form.label :value %><br>
-        <%= form.text_field :value %>
+        <%= form.label :badge_rule %><br>
+        <%= form.collection_select :badge_rule_id, BadgeRule.all, :id, :rule, prompt: true %>
       </p><br>
 
       <p><%= form.submit %></p>

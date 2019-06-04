@@ -7,14 +7,14 @@ class BadgeUserService
   end 
 
   def call
-    Badge.all.each do |badge|
-      case badge.rule
+    BadgeRule.all.each do |element|
+      case element.rule
       when 'first_try_complete'
-        give_badge(badge) if first_try_successfull?           
+        give_badge(element.badge) if first_try_successfull?           
       when 'level_complete'
-        give_badge(badge) if level_complete?(badge.value.to_i)
+        give_badge(element.badge) if level_complete?(element.value.to_i)
       when 'category_complete'
-        give_badge(badge) if category_complete?(badge.value)
+        give_badge(element.badge) if category_complete?(element.value)
       end  
     end
   end
