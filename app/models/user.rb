@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :gists
   has_many :feedbacks
-  has_many :badge_rules
-  has_many :badges, through: :badge_rules
+  has_many :user_badges
+  has_many :badges, through: :user_badges
 
   before_save :downcase_email
 
