@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_06_04_100409) do
+=======
+ActiveRecord::Schema.define(version: 2019_06_05_075933) do
+>>>>>>> 8cadc6a... Many fix
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +31,10 @@ ActiveRecord::Schema.define(version: 2019_06_04_100409) do
   create_table "badge_rules", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.integer "badge_id"
+>>>>>>> 8cadc6a... Many fix
     t.string "rule"
     t.string "value"
   end
@@ -94,10 +102,19 @@ ActiveRecord::Schema.define(version: 2019_06_04_100409) do
   end
 
   create_table "user_badges", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer "user_id"
     t.integer "badge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+    t.bigint "user_id"
+    t.bigint "badge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_user_badges_on_badge_id"
+    t.index ["user_id"], name: "index_user_badges_on_user_id"
+>>>>>>> 8cadc6a... Many fix
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,4 +145,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_100409) do
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
   add_foreign_key "tests", "users", column: "creator_id"
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "users"
 end
