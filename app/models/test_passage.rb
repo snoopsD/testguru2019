@@ -11,6 +11,10 @@ class TestPassage < ApplicationRecord
   def completed?
     current_question.nil?
   end
+
+  def successfully?
+    completed? && passed?
+  end
   
   def success_rate
     ( self.correct_questions.to_f * 100 ) / self.test.questions.count
@@ -24,6 +28,10 @@ class TestPassage < ApplicationRecord
     self.correct_questions += 1 if correct_answer?(answer_ids)
 
     save!
+  end
+
+  def question_number
+    test.questions.where('questions.id <= ?', current_question.id).count
   end
 
   private 

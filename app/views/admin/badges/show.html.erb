@@ -1,0 +1,12 @@
+<div class="row justify-content-center mt-3">
+  <div class="col col-md-12">
+    <%= @badge.title %>  
+    <hr>  
+
+    <p> 
+      <img src="<%= @badge.img_url %>">
+    </p>
+
+    <%= link_to t('back_link'), admin_badges_path %>
+  </div>
+</div>    

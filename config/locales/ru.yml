@@ -70,8 +70,7 @@ ru:
       header: "Список тестов"
       title: "Название"
       level: "Уровень"
-      questions: "Вопросы"
-  
+      questions: "Вопросы"  
   
   admin:
     tests:
@@ -112,7 +111,20 @@ ru:
         header: "Гисты"
         question: "Вопрос"
         url: "Ссылка"
-        email: "Email"    
+        email: "Email"
+    badges:
+      index:
+        header: "Бейджы"  
+        th_title: "Название"
+        th_img: "Значок" 
+        th_actions: "Действия"  
+      new:
+        header: "Создать бейдж" 
+      create:
+        success: "Бейдж создан" 
+      update:
+        success: "Бейдж обновлен" 
+                  
 
   tests_mailer:
     completed_test:
@@ -123,6 +135,11 @@ ru:
       send_feedback: 'Письмо отправлено'
     new:  
       header: "Отправить отзыв" 
+  badges:
+    index:
+      header: "Бейджы"  
+      th_title: "Название"
+      th_img: "Значок"  
 
   admin_panel: "TestGuru Панель Управления"
   welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-name">%{name}</b>' 
@@ -150,5 +167,6 @@ ru:
   remember_me: "Запомнить меня"
   question: "Вопрос"
   gist_description: "Вопрос из теста"
-
-
+  badge: "Бейджы"
+  send_feedback: "Отправить отзыв"
+  create_badge: "Создать бейдж"

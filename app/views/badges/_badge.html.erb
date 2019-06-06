@@ -1,0 +1,6 @@
+<tr>  
+    <td><%= badge.title %></td>
+    <td><img src="<%=  badge.img_url.html_safe %>">
+        <%= current_user.badges.where(title: badge.title).count %>
+    </td>
+</tr>
