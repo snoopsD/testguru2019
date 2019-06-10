@@ -20,7 +20,7 @@
 
       <p>
         <%= form.label :timer %><br>
-        <%= form.time_select :timer, :ignore_date => true, default: { hour: 0, min: 0 } %>
+        <%= form.number_field :timer, min: 0 %> в секундах
       </p>
 
       <p><%= form.submit %></p>

@@ -7,12 +7,20 @@
     </div>    
     <hr>
 
-    <div id="progressBar">
-      <div id="myBar">
-        <b><%= @test_passage.question_number %>
-        / <%= @test_passage.test.questions.count %> </b>
+    <div class="test-manage">
+      <%= content_tag :div,
+             class: 'text-center',
+             id: 'test-timer',
+             data: { timer: @test_passage.test.timer } do %>
+        <%= format_timer(@test_passage.test)  %> 
+      <% end %>
+      <div id="progressBar">
+        <div id="myBar">
+          <b><%= @test_passage.question_number %>
+          / <%= @test_passage.test.questions.count %> </b>
+        </div>
       </div>
-    </div>
+    </div>  
 
      <%=  content_tag :div, 
                     id: 'current-test',

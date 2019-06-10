@@ -14,7 +14,7 @@ class TestPassagesController < ApplicationController
     if params[:answer_ids].nil?
       redirect_to test_passage_path, notice: "Выберите ответ!" 
     else  
-      @test_passage.accept!(params[:answer_ids])
+      @test_passage.accept!(params[:answer_ids]) 
       if @test_passage.completed?
         BadgeUserService.new(@test_passage).call
         TestsMailer.completed_test(@test_passage).deliver_now

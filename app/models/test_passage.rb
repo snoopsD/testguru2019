@@ -34,6 +34,21 @@ class TestPassage < ApplicationRecord
     test.questions.where('questions.id <= ?', current_question.id).count
   end
 
+  def set_timer 
+    return unless test.timer
+
+    self.time_end = Time.now + test.timer
+  end
+
+  def set_timer!
+    set_timer
+    save!
+  end
+
+  def time_is_up?
+    (self.time_end - Time.now).negative? 
+  end
+
   private 
 
   def before_validation_set_first_question
