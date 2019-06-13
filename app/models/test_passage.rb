@@ -35,10 +35,12 @@ class TestPassage < ApplicationRecord
   end
 
   def set_timer 
-    return unless test.timer
-    timer = test.timer
+    if self.timer_present?
+      return unless test.timer
+      timer = test.timer
 
-    self.time_end = Time.now + (timer * 60)
+      self.time_end = Time.now + (timer * 60)
+    end  
   end
 
   def set_timer!
@@ -47,8 +49,19 @@ class TestPassage < ApplicationRecord
   end
 
   def time_is_up?
-    (self.time_end - Time.now).negative? 
+    (self.time_end - Time.now).negative? if self.timer_present?
   end
+  
+  def timer_present?
+    self.test.timer.present?
+  end
+
+  def badge_and_mailer
+    if self.successfully?
+      BadgeUserService.new(self).call
+      TestsMailer.completed_test(self).deliver_now
+    end  
+  end 
 
   private 
 

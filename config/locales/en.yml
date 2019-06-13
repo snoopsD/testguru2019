@@ -129,11 +129,16 @@ en:
       send_feedback: 'Message was send' 
     new:  
       header: "Send feedback"  
+      
   badges:
     index:
       header: "Badges"  
       th_title: "Title"
-      th_img: "Image"             
+      th_img: "Image" 
+
+  javascript:
+    edit: "edit"  
+    cancel: "cancel"               
 
   admin_panel: "TestGuru Admin Panel"
   welcome_admin_html: 'Welcome, <b class="nav-admin user-name">%{name}</b>' 

@@ -1,19 +1,21 @@
 <nav class="navbar navbar-light bg-light">
-  <h1><%= link_to 'Test Guru', root_path, class: 'navbar-brand' %></h1>
-  <h1><%= link_to t('send_feedback'), 
-        new_feedback_path,
-        class: 'navbar-brand' %>
-  </h1>  
-  <h1><%= link_to t('badge'), admin_badges_path, class: 'navbar-brand' %></h1>    
-  
-  <div class="nav nav-admin">
-    <span class="navbar-text">
-      <span class="nav-admin title"><%= link_to t('admin_panel'), admin_root_path %></span>
+  <div class = "container">
+    <h1><%= link_to 'Test Guru', root_path, class: 'navbar-brand' %></h1>
+    <h1><%= link_to t('send_feedback'), 
+          new_feedback_path,
+          class: 'navbar-brand' %>
+    </h1>  
+    <h1><%= link_to t('badge'), admin_badges_path, class: 'navbar-brand' %></h1>    
+    
+    <div class="nav nav-admin">
+      <span class="navbar-text">
+        <span class="nav-admin title"><%= link_to t('admin_panel'), admin_root_path %></span>
 
-      <div class="nav-admin user">
-        <%= t('welcome_admin_html', name: current_user.name) %> Guru |
-        <%= link_to t('logout'), destroy_user_session_path, method: :delete%>
-      </div>
-    </span>  
-  </div>
+        <div class="nav-admin user">
+          <%= t('welcome_admin_html', name: current_user.name) %> Guru |
+          <%= link_to t('logout'), destroy_user_session_path, method: :delete%>
+        </div>
+      </span>  
+    </div>
+  </div>  
 </nav>  

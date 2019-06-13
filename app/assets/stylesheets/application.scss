@@ -4,11 +4,15 @@
 @import "test_passages";
 
 .navbar-fixed-bottom {
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
+  width: 100%;
+  height: 60px;
 }
 
 .container {
   margin-left: 10px;
+  margin-bottom: 60px;
+
+  position: relative;
 }

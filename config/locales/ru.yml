@@ -140,6 +140,10 @@ ru:
       header: "Бейджы"  
       th_title: "Название"
       th_img: "Значок"  
+  
+  javascript:
+    edit: редактировать  
+    cancel: отмена  
 
   admin_panel: "TestGuru Панель Управления"
   welcome_admin_html: 'Добро пожаловать, <b class="nav-admin user-name">%{name}</b>' 
