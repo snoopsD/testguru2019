@@ -9,9 +9,9 @@ categories = Category.create(
 )
 
 tests = Test.create(
-  [{ title: 'Ruby test for begginer', level: 1, category: categories[0], creator: users[0] },
-   { title: 'HTML test for middle', level: 1, category: categories[1], creator: users[0] },
-   { title: 'JS test for middle', level: 3, category: categories[1], creator: users[0] }]
+  [{ title: 'Ruby test for begginer', level: 1, category: categories[0], creator: users[0], timer: 40 },
+   { title: 'HTML test for middle', level: 1, category: categories[1], creator: users[0], timer: 50  },
+   { title: 'JS test for middle', level: 3, category: categories[1], creator: users[0], timer: 60 }]
 )
 
 questions = Question.create(

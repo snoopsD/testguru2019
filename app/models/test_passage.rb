@@ -36,8 +36,9 @@ class TestPassage < ApplicationRecord
 
   def set_timer 
     return unless test.timer
+    timer = test.timer
 
-    self.time_end = Time.now + test.timer
+    self.time_end = Time.now + (timer * 60)
   end
 
   def set_timer!

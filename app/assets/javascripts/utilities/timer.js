@@ -1,62 +1,39 @@
 document.addEventListener('turbolinks:load', function() {
-  var control = document.getElementById('test-timer').dataset.timer 
-  
-  if (control && !localStorage.seconds) { 
-    var duration = control 
-    var content = document.getElementById('test-timer')
-    timerStart(duration, content) 
-  } else {
-    if (localStorage.seconds) {    
-      minutes = parseInt(localStorage.getItem("minutes"))
-      seconds = parseInt(localStorage.getItem("seconds"))
-      if (minutes == 0) { 
-        timeLeft = minutes + seconds
-      } else {
-        minutes = minutes * 60
-        timeLeft = minutes + seconds
-      }      
-      content = document.getElementById('test-timer')  
-      timerStart(timeLeft, content)
-    }      
-  }
+  var control = document.getElementById('test-timer')
+
+  if (control) { 
+    if (control.dataset.timer) {
+      timerStart()
+    }
+   }
 })
 
-function timerStart(duration, content) {
+function timerStart() {
+  var refreshIntervalId  = setInterval(timerStart, 500)
+  var timeEnd = document.getElementById('test-timer').dataset.timeEnd * 1000
+  var timeLeft = Math.round(Math.abs(new Date(timeEnd) - new Date()))
+  var actualTime = new Date(timeLeft)
+
+  minutes = actualTime.getMinutes()
+  seconds = actualTime.getSeconds() 
   
-  var timer = duration, minutes, seconds
-  var setTimer = setInterval(function () {  
+  minutes = minutes < 10 ? "0" + minutes : minutes
+  seconds = seconds < 10 ? "0" + seconds : seconds  
+  console.log(minutes)
+  console.log(seconds)
 
-    minutes = parseInt(timer / 60, 10)
-    seconds = parseInt(timer % 60, 10) 
+  document.getElementById('test-timer').textContent = minutes + ":" + seconds
 
-    minutes = minutes < 10 ? "0" + minutes : minutes
-    seconds = seconds < 10 ? "0" + seconds : seconds   
-
-    content.textContent = minutes + ":"  + seconds
-    
-    var endTime = parseInt(minutes + seconds, 10)
-    console.log(endTime)
-
-    localStorage.setItem("minutes", minutes)
-    localStorage.setItem("seconds",seconds)
-
-    if (--timer < 0) {
-      timer = duration 
-      content.textContent = "Time is expired"
-      clearInterval(setTimer)
-      localStorage.clear() 
-    }   
-   
-  }, 1000)
+  if (minutes ==  00  && seconds == 00) {
+    clearInterval(refreshIntervalId)
+    document.getElementById('test-timer').textContent = 'Time is expired'
+    submitForm()
+  }
 }
 
-
-
-
-
-
-
-      
-      
+function submitForm() {
+  var formTag = document.querySelector('#test-passage-form')
+  if (formTag) { formTag.submit() }
+}
 
 
