@@ -28,11 +28,6 @@ class TestPassagesController < ApplicationController
         render :show  
       end      
     end
-
-  end
-
-  def update_wo_timer
-
   end
 
   def gist
