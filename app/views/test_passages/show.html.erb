@@ -7,12 +7,21 @@
     </div>    
     <hr>
 
-    <div id="progressBar">
-      <div id="myBar">
-        <b><%= @test_passage.question_number %>
-        / <%= @test_passage.test.questions.count %> </b>
+    <div class="test-manage", id="test-passage-<%= @test_passage.id %>" >
+      <%= content_tag :div,
+             class: 'text-center',
+             id: 'test-timer',
+             data: { timer: @test_passage.test.timer, test_passage_id: @test_passage.id,
+                     time_end: @test_passage.time_end.to_f } do %>
+        <%= format_timer(@test_passage.test)  %> 
+      <% end %>
+      <div id="progressBar">
+        <div id="myBar">
+          <b><%= @test_passage.question_number %>
+          / <%= @test_passage.test.questions.count %> </b>
+        </div>
       </div>
-    </div>
+    </div>  
 
      <%=  content_tag :div, 
                     id: 'current-test',
@@ -25,7 +34,7 @@
         <%= @test_passage.current_question.body %>
       </b>
 
-      <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+      <%= form_with url: test_passage_path(@test_passage), local: true, id: 'test-passage-form', method: :put do |form| %>
         <%= form.collection_check_boxes :answer_ids, 
             @test_passage.current_question.answers, 
             :id, :body, include_hidden: false do |b|%>

@@ -34,6 +34,35 @@ class TestPassage < ApplicationRecord
     test.questions.where('questions.id <= ?', current_question.id).count
   end
 
+  def set_timer 
+    if self.timer_present?
+      return unless test.timer
+      timer = test.timer
+
+      self.time_end = Time.now + (timer * 60)
+    end  
+  end
+
+  def set_timer!
+    set_timer
+    save!
+  end
+
+  def time_is_up?
+    (self.time_end - Time.now).negative? if self.timer_present?
+  end
+  
+  def timer_present?
+    self.test.timer.present?
+  end
+
+  def badge_and_mailer
+    if self.successfully?
+      BadgeUserService.new(self).call
+      TestsMailer.completed_test(self).deliver_now
+    end  
+  end 
+
   private 
 
   def before_validation_set_first_question

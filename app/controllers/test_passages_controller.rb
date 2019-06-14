@@ -8,21 +8,18 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-  end
+  end  
 
-  def update
-    if params[:answer_ids].nil?
-      redirect_to test_passage_path, notice: "Выберите ответ!" 
-    else  
-      @test_passage.accept!(params[:answer_ids])
-      if @test_passage.completed?
-        BadgeUserService.new(@test_passage).call
-        TestsMailer.completed_test(@test_passage).deliver_now
-        redirect_to result_test_passage_path(@test_passage)
-      else 
-        render :show
-      end
-    end    
+  def update 
+    @test_passage.accept!(params[:answer_ids] || [])
+
+    if @test_passage.completed? || @test_passage.time_is_up?
+      @test_passage.badge_and_mailer
+      redirect_to result_test_passage_path(@test_passage)
+    else
+      render :show 
+    end
+
   end
 
   def gist
@@ -52,5 +49,5 @@ class TestPassagesController < ApplicationController
   def set_user
     current_user
   end
-  
+
 end

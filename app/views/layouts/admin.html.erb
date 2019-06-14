@@ -7,6 +7,10 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <%= javascript_tag do %>
+      window.I18n = <%= t('javascript').to_json.html_safe %>
+    <% end %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -27,8 +31,12 @@
         <%= yield %>  
       </div>    
   </body>
-  
-   <div class="navbar-fixed-bottom">
-      <%= render 'shared/footer' %> 
+
+  <div class="navbar-fixed-bottom row-fluid">
+      <div class="navbar-inner">
+          <div class="container">
+            <%= render 'shared/footer' %>
+          </div>
+    </div>
   </div> 
 </html>
